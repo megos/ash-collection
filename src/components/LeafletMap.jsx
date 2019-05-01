@@ -4,9 +4,9 @@ import {
 } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
 import csv from 'csvtojson'
+import L from 'leaflet'
 import { takutikouhai } from '../data/3-16_takutikouhai'
 import './LeafletMap.css'
-import L from 'leaflet'
 
 // eslint-disable-next-line no-underscore-dangle
 delete L.Icon.Default.prototype._getIconUrl
