@@ -4,8 +4,9 @@ import {
 } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
 import csv from 'csvtojson'
-import './LeafletMap.css'
 import L from 'leaflet'
+import { takutikouhai } from '../data/3-16_takutikouhai'
+import './LeafletMap.css'
 
 // eslint-disable-next-line no-underscore-dangle
 delete L.Icon.Default.prototype._getIconUrl
@@ -28,14 +29,10 @@ export default class LeafletMap extends Component {
   }
 
   componentDidMount() {
-    fetch('../data/3-16_takutikouhai.csv')
-      .then(res => res.text())
-      .then((csvData) => {
-        csv()
-          .fromString(csvData)
-          .then((data) => {
-            this.setState({ data })
-          })
+    csv()
+      .fromString(takutikouhai)
+      .then((data) => {
+        this.setState({ data })
       })
   }
 
@@ -55,12 +52,12 @@ export default class LeafletMap extends Component {
             <Marker
               key={idx}
               position={[
-                d.POINT_Y,
-                d.POINT_X,
+                d.lat,
+                d.lng,
               ]}
             >
               <Popup>
-                {d['名称']}
+                {d.name}
               </Popup>
             </Marker>
           ))}
