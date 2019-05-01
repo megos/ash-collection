@@ -1,5 +1,8 @@
 # ash-collection
-A ash collection point search in Kagoshima-shi built with React and Onsen UI
+A ash collection point search in Kagoshima-shi built with React, Onsen UI and Leaflet
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e99aa75e-8049-4c5f-a302-385bf6300d23/deploy-status)](https://app.netlify.com/sites/ash-collection/deploys)
+[![CircleCI](https://circleci.com/gh/megos/ash-collection.svg?style=svg)](https://circleci.com/gh/megos/ash-collection)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
