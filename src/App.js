@@ -1,12 +1,12 @@
 import React from 'react';
 import {Page, Button} from 'react-onsenui';
-import SimpleExample from './components/Map'
+import LeafletMap from './components/LeafletMap'
 import './App.css';
 
 function App() {
   return (
     <Page className="App">
-      <SimpleExample/>
+      <LeafletMap/>
       <Button>Hello!</Button>
     </Page>
   );
