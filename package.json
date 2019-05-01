@@ -21,7 +21,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": ["react-app", "@megos/eslint-config-react"]
   },
   "browserslist": {
     "production": [
@@ -34,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@megos/eslint-config-react": "^0.0.2"
   }
 }
