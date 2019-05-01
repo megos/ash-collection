@@ -1,3 +1,6 @@
+# ash-collection
+A ash collection point search in Kagoshima-shi built with React and Onsen UI
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
