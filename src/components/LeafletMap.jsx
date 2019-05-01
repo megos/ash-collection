@@ -7,13 +7,16 @@ import csv from 'csvtojson'
 import './LeafletMap.css'
 import L from 'leaflet'
 
+// eslint-disable-next-line no-underscore-dangle
 delete L.Icon.Default.prototype._getIconUrl
 
+/* eslint-disable global-require */
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 })
+/* eslint-enable */
 
 export default class LeafletMap extends Component {
   state = {
@@ -37,25 +40,18 @@ export default class LeafletMap extends Component {
   }
 
   render() {
-    const position = [this.state.lat, this.state.lng]
-    const bounds = L.latLngBounds([
-      [31.5968539, 130.5571392],
-      [31.284584, 130.744951],
-    ])
-    this.state.data.forEach((d) => {
-      bounds.extend([
-        d.POINT_Y,
-        d.POINT_X,
-      ])
-    })
+    const {
+      lat, lng, zoom, maxZoom, data,
+    } = this.state
+    const position = [lat, lng]
     return (
-      <Map center={position} zoom={this.state.zoom} maxZoom={this.state.maxZoom}>
+      <Map center={position} zoom={zoom} maxZoom={maxZoom}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <MarkerClusterGroup>
-          {this.state.data.map((d, idx) => (
+          {data.map((d, idx) => (
             <Marker
               key={idx}
               position={[
