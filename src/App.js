@@ -1,13 +1,13 @@
-import React from 'react';
-import {Page} from 'react-onsenui';
+import React from 'react'
+import { Page } from 'react-onsenui'
 import LeafletMap from './components/LeafletMap'
 
 function App() {
   return (
     <Page className="App">
-      <LeafletMap/>
+      <LeafletMap />
     </Page>
-  );
+  )
 }
 
-export default App;
+export default App

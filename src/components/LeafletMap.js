@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import {
+  Map, TileLayer, Marker, Popup,
+} from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
 import csv from 'csvtojson'
 import './LeafletMap.css'
-import L from 'leaflet';
+import L from 'leaflet'
 
-delete L.Icon.Default.prototype._getIconUrl;
+delete L.Icon.Default.prototype._getIconUrl
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
-});
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+})
 
 export default class LeafletMap extends Component {
   state = {
@@ -24,12 +26,12 @@ export default class LeafletMap extends Component {
 
   componentDidMount() {
     fetch('../data/3-16_takutikouhai.csv')
-      .then((res) => res.text())
+      .then(res => res.text())
       .then((csvData) => {
         csv()
           .fromString(csvData)
           .then((data) => {
-            this.setState({ data})
+            this.setState({ data })
           })
       })
   }
@@ -54,12 +56,15 @@ export default class LeafletMap extends Component {
         />
         <MarkerClusterGroup>
           {this.state.data.map((d, idx) => (
-            <Marker key={idx} position={[
-              d.POINT_Y,
-              d.POINT_X,
-            ]}>
+            <Marker
+              key={idx}
+              position={[
+                d.POINT_Y,
+                d.POINT_X,
+              ]}
+            >
               <Popup>
-                {d["名称"]}
+                {d['名称']}
               </Popup>
             </Marker>
           ))}
@@ -68,4 +73,3 @@ export default class LeafletMap extends Component {
     )
   }
 }
-
