@@ -22,7 +22,10 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src"
   },
   "eslintConfig": {
-    "extends": ["react-app", "@megos/eslint-config-react"]
+    "extends": ["react-app", "@megos/eslint-config-react"],
+    "rules": {
+      "react/no-array-index-key": "off"
+    }
   },
   "browserslist": {
     "production": [
