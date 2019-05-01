@@ -4,9 +4,9 @@ import './LeafletMap.css'
 
 export default class LeafletMap extends Component {
   state = {
-    lat: 31.592281,
-    lng: 130.656424,
-    zoom: 9,
+    lat: 31.5967656,
+    lng: 130.5552324,
+    zoom: 11,
   }
 
   render() {
