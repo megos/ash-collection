@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 import 'leaflet/dist/leaflet.css'
+import 'react-leaflet-markercluster/dist/styles.min.css'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
