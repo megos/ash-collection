@@ -1,10 +1,11 @@
 import React from 'react'
 import { Page } from 'react-onsenui'
 import LeafletMap from './components/LeafletMap'
+import Toolbar from './components/Toolbar'
 
 function App() {
   return (
-    <Page className="App">
+    <Page className="App" renderToolbar={() => <Toolbar/>}>
       <LeafletMap />
     </Page>
   )
