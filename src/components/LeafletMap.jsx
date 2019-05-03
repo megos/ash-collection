@@ -4,6 +4,7 @@ import {
 } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
 import csv from 'csvtojson'
+import PropTypes from 'prop-types'
 import L from 'leaflet'
 import { takutikouhai } from '../data/3-16_takutikouhai'
 import './LeafletMap.css'
@@ -63,4 +64,8 @@ export default class LeafletMap extends Component {
       </Map>
     )
   }
+}
+
+LeafletMap.propTypes = {
+  center: PropTypes.arrayOf(PropTypes.number).isRequired,
 }
