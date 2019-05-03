@@ -3,12 +3,13 @@ import { Page } from 'react-onsenui'
 import LeafletMap from './components/LeafletMap'
 import Toolbar from './components/Toolbar'
 import Location from './components/Location'
+import { CITY_HALL_POSITION } from './constants'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      userPosition: [31.5967656, 130.5552324],
+      userPosition: CITY_HALL_POSITION,
     }
     this.onPositionChange = this.onPositionChange.bind(this)
   }

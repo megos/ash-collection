@@ -7,6 +7,7 @@ import csv from 'csvtojson'
 import PropTypes from 'prop-types'
 import L from 'leaflet'
 import { takutikouhai } from '../data/3-16_takutikouhai'
+import { CITY_HALL_POSITION } from '../constants'
 import './LeafletMap.css'
 
 // eslint-disable-next-line no-underscore-dangle
@@ -24,7 +25,7 @@ export default class LeafletMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      center: [31.5967656, 130.5552324],
+      center: CITY_HALL_POSITION,
       zoom: 11,
       maxZoom: 18,
       data: [],
