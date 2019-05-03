@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Fab, Icon } from 'react-onsenui'
+import PropTypes from 'prop-types'
 
 export default class Location extends Component {
   constructor(props) {
@@ -9,7 +10,10 @@ export default class Location extends Component {
 
   getCurrentPosition() {
     navigator.geolocation.getCurrentPosition((pos) => {
-      console.log(pos)
+      const { onPositionChange } = this.props
+      if (onPositionChange) {
+        onPositionChange(pos)
+      }
     })
   }
 
@@ -20,4 +24,12 @@ export default class Location extends Component {
       </Fab>
     )
   }
+}
+
+Location.propTypes = {
+  onPositionChange: PropTypes.func,
+}
+
+Location.defaultProps = {
+  onPositionChange: null,
 }
