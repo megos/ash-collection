@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ons from 'onsenui'
 import { Fab, Icon } from 'react-onsenui'
 import PropTypes from 'prop-types'
 
@@ -14,6 +15,8 @@ export default class Location extends Component {
       if (onPositionChange) {
         onPositionChange(pos)
       }
+    }, () => {
+      ons.notification.toast('現在地を取得できませんでした', { timeout: 2000 })
     })
   }
 
