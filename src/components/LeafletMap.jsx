@@ -21,8 +21,6 @@ L.Icon.Default.mergeOptions({
 
 export default class LeafletMap extends Component {
   state = {
-    lat: 31.5967656,
-    lng: 130.5552324,
     zoom: 11,
     maxZoom: 18,
     data: [],
@@ -38,11 +36,11 @@ export default class LeafletMap extends Component {
 
   render() {
     const {
-      lat, lng, zoom, maxZoom, data,
+      zoom, maxZoom, data,
     } = this.state
-    const position = [lat, lng]
+    const { center } = this.props
     return (
-      <Map center={position} zoom={zoom} maxZoom={maxZoom}>
+      <Map center={center} zoom={zoom} maxZoom={maxZoom}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
