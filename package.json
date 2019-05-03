@@ -7,6 +7,7 @@
     "leaflet": "^1.4.0",
     "leaflet.markercluster": "^1.4.1",
     "onsenui": "^2.10.8",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-leaflet": "^2.2.1",
@@ -22,7 +23,10 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src"
   },
   "eslintConfig": {
-    "extends": ["react-app", "@megos/eslint-config-react"],
+    "extends": [
+      "react-app",
+      "@megos/eslint-config-react"
+    ],
     "rules": {
       "react/no-array-index-key": "off"
     }
