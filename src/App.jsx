@@ -8,8 +8,7 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      center: [31.5967656, 130.5552324],
-      zoom: 11,
+      userPosition: [31.5967656, 130.5552324],
     }
     this.onPositionChange = this.onPositionChange.bind(this)
   }
@@ -17,20 +16,19 @@ export default class App extends Component {
   onPositionChange(pos) {
     const { latitude, longitude } = pos.coords
     this.setState({
-      center: [latitude, longitude],
-      zoom: 18,
+      userPosition: [latitude, longitude],
     })
   }
 
   render() {
-    const { center, zoom } = this.state
+    const { userPosition } = this.state
     return (
       <Page
         className="App"
         renderFixed={() => <Location onPositionChange={this.onPositionChange} />}
         renderToolbar={() => <Toolbar />}
       >
-        <LeafletMap center={center} zoom={zoom} />
+        <LeafletMap userPosition={userPosition} />
       </Page>
     )
   }

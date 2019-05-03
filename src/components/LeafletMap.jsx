@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { createRef, Component } from 'react'
 import {
   Map, TileLayer, Marker, Popup,
 } from 'react-leaflet'
@@ -21,9 +21,15 @@ L.Icon.Default.mergeOptions({
 /* eslint-enable */
 
 export default class LeafletMap extends Component {
-  state = {
-    maxZoom: 18,
-    data: [],
+  constructor(props) {
+    super(props)
+    this.state = {
+      center: [31.5967656, 130.5552324],
+      zoom: 11,
+      maxZoom: 18,
+      data: [],
+    }
+    this.mapRef = createRef()
   }
 
   componentDidMount() {
@@ -34,22 +40,22 @@ export default class LeafletMap extends Component {
       })
   }
 
-  componentDidUpdate(prevProps) {
-    const { center } = this.props
-    if (center[0] !== prevProps.center[0]
-      && center[1] !== prevProps.center[1]) {
-      const map = this.mapRef
+  componentDidUpdate() {
+    const { center, maxZoom } = this.state
+    const { userPosition } = this.props
+    if (center[0] !== userPosition[0]
+      && center[1] !== userPosition[1]) {
+      const map = this.mapRef.current
       if (map != null) {
-        map.leafletElement.panTo(center)
+        map.leafletElement.flyTo(userPosition, maxZoom)
       }
     }
   }
 
   render() {
     const {
-      maxZoom, data,
+      center, zoom, maxZoom, data,
     } = this.state
-    const { center, zoom } = this.props
     return (
       <Map center={center} ref={this.mapRef} zoom={zoom} maxZoom={maxZoom}>
         <TileLayer
@@ -77,6 +83,5 @@ export default class LeafletMap extends Component {
 }
 
 LeafletMap.propTypes = {
-  center: PropTypes.arrayOf(PropTypes.number).isRequired,
-  zoom: PropTypes.number.isRequired,
+  userPosition: PropTypes.arrayOf(PropTypes.number).isRequired,
 }
