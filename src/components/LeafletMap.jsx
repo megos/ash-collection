@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { createRef, Component } from 'react'
 import {
   Map, TileLayer, Marker, Popup,
 } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
 import csv from 'csvtojson'
+import PropTypes from 'prop-types'
 import L from 'leaflet'
 import { takutikouhai } from '../data/3-16_takutikouhai'
+import { CITY_HALL_POSITION } from '../constants'
 import './LeafletMap.css'
 
 // eslint-disable-next-line no-underscore-dangle
@@ -20,12 +22,15 @@ L.Icon.Default.mergeOptions({
 /* eslint-enable */
 
 export default class LeafletMap extends Component {
-  state = {
-    lat: 31.5967656,
-    lng: 130.5552324,
-    zoom: 11,
-    maxZoom: 18,
-    data: [],
+  constructor(props) {
+    super(props)
+    this.state = {
+      center: CITY_HALL_POSITION,
+      zoom: 11,
+      maxZoom: 18,
+      data: [],
+    }
+    this.mapRef = createRef()
   }
 
   componentDidMount() {
@@ -36,16 +41,27 @@ export default class LeafletMap extends Component {
       })
   }
 
+  componentDidUpdate() {
+    const { center, maxZoom } = this.state
+    const { userPosition } = this.props
+    if (center[0] !== userPosition[0]
+      && center[1] !== userPosition[1]) {
+      const map = this.mapRef.current
+      if (map != null) {
+        map.leafletElement.flyTo(userPosition, maxZoom)
+      }
+    }
+  }
+
   render() {
     const {
-      lat, lng, zoom, maxZoom, data,
+      center, zoom, maxZoom, data,
     } = this.state
-    const position = [lat, lng]
     return (
-      <Map center={position} zoom={zoom} maxZoom={maxZoom}>
+      <Map center={center} ref={this.mapRef} zoom={zoom} maxZoom={maxZoom}>
         <TileLayer
-          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a> '
+          url="https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"
         />
         <MarkerClusterGroup>
           {data.map((d, idx) => (
@@ -65,4 +81,8 @@ export default class LeafletMap extends Component {
       </Map>
     )
   }
+}
+
+LeafletMap.propTypes = {
+  userPosition: PropTypes.arrayOf(PropTypes.number).isRequired,
 }
