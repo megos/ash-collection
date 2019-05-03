@@ -22,7 +22,6 @@ L.Icon.Default.mergeOptions({
 
 export default class LeafletMap extends Component {
   state = {
-    zoom: 11,
     maxZoom: 18,
     data: [],
   }
@@ -35,13 +34,24 @@ export default class LeafletMap extends Component {
       })
   }
 
+  componentDidUpdate(prevProps) {
+    const { center } = this.props
+    if (center[0] !== prevProps.center[0]
+      && center[1] !== prevProps.center[1]) {
+      const map = this.mapRef
+      if (map != null) {
+        map.leafletElement.panTo(center)
+      }
+    }
+  }
+
   render() {
     const {
-      zoom, maxZoom, data,
+      maxZoom, data,
     } = this.state
-    const { center } = this.props
+    const { center, zoom } = this.props
     return (
-      <Map center={center} zoom={zoom} maxZoom={maxZoom}>
+      <Map center={center} ref={this.mapRef} zoom={zoom} maxZoom={maxZoom}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -68,4 +78,5 @@ export default class LeafletMap extends Component {
 
 LeafletMap.propTypes = {
   center: PropTypes.arrayOf(PropTypes.number).isRequired,
+  zoom: PropTypes.number.isRequired,
 }
