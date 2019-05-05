@@ -6,15 +6,11 @@ import Location from '../components/Location'
 import { CITY_HALL_POSITION } from '../constants'
 
 export default class TopPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      userPosition: CITY_HALL_POSITION,
-    }
-    this.onPositionChange = this.onPositionChange.bind(this)
+  state = {
+    userPosition: CITY_HALL_POSITION,
   }
 
-  onPositionChange(pos) {
+  onPositionChange = (pos) => {
     const { latitude, longitude } = pos.coords
     this.setState({
       userPosition: [latitude, longitude],
