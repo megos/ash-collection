@@ -10,14 +10,15 @@ import { takutikouhai } from '../data/3-16_takutikouhai'
 import { CITY_HALL_POSITION } from '../constants'
 import './LeafletMap.css'
 
-// eslint-disable-next-line no-underscore-dangle
-delete L.Icon.Default.prototype._getIconUrl
-
 /* eslint-disable global-require */
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+const icon = L.icon({
+  iconRetinaUrl: require('../assets/marker-icon-2x.png'),
+  iconUrl: require('../assets/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+  iconSize: [22, 41], // size of the icon
+  iconAnchor: [11, 41], // point of the icon which will correspond to marker's location
+  shadowAnchor: [14, 40], // the same for the shadow
+  popupAnchor: [0, -41], // point from which the popup should open relative to the iconAnchor
 })
 /* eslint-enable */
 
@@ -71,6 +72,7 @@ export default class LeafletMap extends Component {
                 d.lat,
                 d.lng,
               ]}
+              icon={icon}
             >
               <Popup>
                 {d.name}
