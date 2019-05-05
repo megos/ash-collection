@@ -24,16 +24,14 @@ const icon = L.icon({
 })
 
 export default class LeafletMap extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      center: CITY_HALL_POSITION,
-      zoom: 11,
-      maxZoom: 18,
-      data: [],
-    }
-    this.mapRef = createRef()
+  state = {
+    center: CITY_HALL_POSITION,
+    zoom: 11,
+    maxZoom: 18,
+    data: [],
   }
+
+  mapRef = createRef()
 
   componentDidMount() {
     csv()
