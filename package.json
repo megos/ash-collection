@@ -3,18 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "csvtojson": "^2.0.8",
-    "leaflet": "^1.4.0",
-    "leaflet.markercluster": "^1.4.1",
-    "onsenui": "^2.10.8",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-leaflet": "^2.2.1",
-    "react-leaflet-markercluster": "^2.0.0-rc3",
-    "react-onsenui": "^1.11.2",
-    "react-router": "^5.0.0",
-    "react-router-dom": "^5.0.0",
+    "csvtojson": "2.0.8",
+    "leaflet": "1.4.0",
+    "leaflet.markercluster": "1.4.1",
+    "onsenui": "2.10.8",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-leaflet": "2.2.1",
+    "react-leaflet-markercluster": "2.0.0-rc3",
+    "react-onsenui": "1.11.2",
+    "react-router": "5.0.0",
+    "react-router-dom": "5.0.0",
     "react-scripts": "3.0.0"
   },
   "scripts": {
@@ -46,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "@megos/eslint-config-react": "^0.0.2"
+    "@megos/eslint-config-react": "0.0.2"
   }
 }
