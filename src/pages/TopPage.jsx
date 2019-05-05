@@ -25,9 +25,8 @@ export default class TopPage extends Component {
     const { userPosition } = this.state
     return (
       <Page
-        className="App"
         renderFixed={() => <Location onPositionChange={this.onPositionChange} />}
-        renderToolbar={() => <Toolbar />}
+        renderToolbar={() => <Toolbar navigator={this.props.navigator} />}
       >
         <LeafletMap userPosition={userPosition} />
       </Page>
