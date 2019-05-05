@@ -6,20 +6,22 @@ import MarkerClusterGroup from 'react-leaflet-markercluster'
 import csv from 'csvtojson'
 import PropTypes from 'prop-types'
 import L from 'leaflet'
+import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 import { takutikouhai } from '../data/3-16_takutikouhai'
 import { CITY_HALL_POSITION } from '../constants'
 import './LeafletMap.css'
+import iconRetinaUrl from '../assets/marker-icon-2x.png'
+import iconUrl from '../assets/marker-icon.png'
 
-// eslint-disable-next-line no-underscore-dangle
-delete L.Icon.Default.prototype._getIconUrl
-
-/* eslint-disable global-require */
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+const icon = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [22, 41], // size of the icon
+  iconAnchor: [11, 41], // point of the icon which will correspond to marker's location
+  shadowAnchor: [14, 40], // the same for the shadow
+  popupAnchor: [0, -41], // point from which the popup should open relative to the iconAnchor
 })
-/* eslint-enable */
 
 export default class LeafletMap extends Component {
   constructor(props) {
@@ -71,6 +73,7 @@ export default class LeafletMap extends Component {
                 d.lat,
                 d.lng,
               ]}
+              icon={icon}
             >
               <Popup>
                 {d.name}
