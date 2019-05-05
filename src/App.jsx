@@ -1,36 +1,21 @@
-import React, { Component } from 'react'
-import { Page } from 'react-onsenui'
-import LeafletMap from './components/LeafletMap'
-import Toolbar from './components/Toolbar'
-import Location from './components/Location'
-import { CITY_HALL_POSITION } from './constants'
+import React, { Component, createElement } from 'react'
+import { Navigator } from 'react-onsenui'
+import TopPage from './pages/TopPage'
 
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      userPosition: CITY_HALL_POSITION,
-    }
-    this.onPositionChange = this.onPositionChange.bind(this)
-  }
-
-  onPositionChange(pos) {
-    const { latitude, longitude } = pos.coords
-    this.setState({
-      userPosition: [latitude, longitude],
-    })
-  }
+  renderPage
 
   render() {
-    const { userPosition } = this.state
     return (
-      <Page
-        className="App"
-        renderFixed={() => <Location onPositionChange={this.onPositionChange} />}
-        renderToolbar={() => <Toolbar />}
-      >
-        <LeafletMap userPosition={userPosition} />
-      </Page>
-    )
+      <Navigator
+        initialRoute={{ component: TopPage }}
+        renderPage={(route, navigator) => {
+          const props = route.props || {}
+          props.navigator = navigator
+
+          return createElement(route.component, props)
+        }}
+      />
+    );
   }
 }
