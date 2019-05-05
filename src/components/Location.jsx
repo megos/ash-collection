@@ -4,15 +4,11 @@ import { Fab, Icon } from 'react-onsenui'
 import PropTypes from 'prop-types'
 
 export default class Location extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isLoading: false,
-    }
-    this.getCurrentPosition = this.getCurrentPosition.bind(this)
+  state = {
+    isLoading: false,
   }
 
-  getCurrentPosition() {
+  getCurrentPosition = () => {
     this.setState({ isLoading: true })
     navigator.geolocation.getCurrentPosition((pos) => {
       this.setState({ isLoading: false })
