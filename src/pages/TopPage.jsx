@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Page } from 'react-onsenui'
 import LeafletMap from '../components/LeafletMap'
-import Toolbar from '../components/Toolbar'
+import Toolbar from '../components/TopToolbar'
 import Location from '../components/Location'
 import { CITY_HALL_POSITION } from '../constants'
 
