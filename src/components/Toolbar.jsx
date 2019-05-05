@@ -3,8 +3,13 @@ import { Toolbar as OnsToolbar, ToolbarButton, BackButton } from 'react-onsenui'
 import InfoPage from '../pages/InfoPage'
 
 export default class Toolbar extends Component {
-  state = {
-    title: '灰これ',
+  constructor(props) {
+    super(props)
+    this.state = {
+      title: '灰これ',
+    }
+    this.pushPage = this.pushPage.bind(this)
+    this.popPage = this.popPage.bind(this)
   }
   pushPage() {
     this.props.navigator.pushPage({component: InfoPage});
@@ -17,16 +22,17 @@ export default class Toolbar extends Component {
     const { title } = this.state
     return (
       <OnsToolbar>
-        {this.props.navigator.pages.length > 1 &&
+        {this.props.navigator.pages.length > 1
+        &&
         <div className="left">
-          <BackButton onClick={this.popPage.bind(this)}>戻る</BackButton>
+          <BackButton onClick={this.popPage}>戻る</BackButton>
         </div>
         }
         <div className="center">
           {title}
         </div>
         <div className="right">
-          <ToolbarButton onClick={this.pushPage.bind(this)}>これはなに？</ToolbarButton>
+          <ToolbarButton onClick={this.pushPage}>これはなに？</ToolbarButton>
         </div>
       </OnsToolbar>
     )
