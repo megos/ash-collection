@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "csvtojson": "2.0.8",
-    "leaflet": "1.4.0",
+    "leaflet": "1.5.1",
     "leaflet.markercluster": "1.4.1",
     "onsenui": "2.10.8",
     "prop-types": "15.7.2",
