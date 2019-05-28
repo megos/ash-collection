@@ -62,7 +62,7 @@ export default class LeafletMap extends Component {
       const map = this.mapRef.current
       if (map != null) {
         map.leafletElement.flyTo(userPosition, maxZoom)
-        console.log(GeometryUtil.closest(map.leafletElement, data.map(d => L.latLng(d.lat, d.lng)), L.latLng(userPosition[0], userPosition[1])))
+        console.log(GeometryUtil.closest(map.leafletElement, data.map(d => L.latLng(d.lat, d.lng)), L.latLng(userPosition[0], userPosition[1]), true))
       }
     }
   }
