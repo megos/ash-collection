@@ -6,6 +6,7 @@ import MarkerClusterGroup from 'react-leaflet-markercluster'
 import csv from 'csvtojson'
 import PropTypes from 'prop-types'
 import L from 'leaflet'
+import GeometryUtil from 'leaflet-geometryutil'
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 import iconRetinaUrlDefault from 'leaflet/dist/images/marker-icon-2x.png'
 import iconUrlDefault from 'leaflet/dist/images/marker-icon.png'
@@ -53,7 +54,7 @@ export default class LeafletMap extends Component {
   }
 
   componentDidUpdate() {
-    const { center, maxZoom } = this.state
+    const { center, maxZoom, data } = this.state
     const { userPosition } = this.props
     if (userPosition
       && center[0] !== userPosition[0]
@@ -61,6 +62,7 @@ export default class LeafletMap extends Component {
       const map = this.mapRef.current
       if (map != null) {
         map.leafletElement.flyTo(userPosition, maxZoom)
+        console.log(GeometryUtil.closest(map.leafletElement, data.map(d => L.latLng(d.lat, d.lng)), L.latLng(userPosition[0], userPosition[1])))
       }
     }
   }
