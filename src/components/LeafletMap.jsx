@@ -55,7 +55,8 @@ export default class LeafletMap extends Component {
   componentDidUpdate() {
     const { center, maxZoom } = this.state
     const { userPosition } = this.props
-    if (center[0] !== userPosition[0]
+    if (userPosition
+      && center[0] !== userPosition[0]
       && center[1] !== userPosition[1]) {
       const map = this.mapRef.current
       if (map != null) {
@@ -75,9 +76,7 @@ export default class LeafletMap extends Component {
           attribution='<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noreferrer noopener">地理院タイル</a> '
           url="https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"
         />
-        <Marker
-          position={userPosition}
-        />
+        {userPosition && <Marker position={userPosition} />}
         <MarkerClusterGroup>
           {data.map((d, idx) => (
             <Marker
@@ -100,5 +99,9 @@ export default class LeafletMap extends Component {
 }
 
 LeafletMap.propTypes = {
-  userPosition: PropTypes.arrayOf(PropTypes.number).isRequired,
+  userPosition: PropTypes.arrayOf(PropTypes.number),
+}
+
+LeafletMap.defaultProps = {
+  userPosition: null,
 }
