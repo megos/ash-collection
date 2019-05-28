@@ -6403,12 +6403,19 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
+leaflet-geometryutil@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/leaflet-geometryutil/-/leaflet-geometryutil-0.9.1.tgz#1dd379d7923a8a625266181c1983910a8e8dfc02"
+  integrity sha512-DKYLzFBsEcmZSl1fXLM+Pd+7t5IHmY6Ps7XeSnWL1ngr1qxQfcVzhkJT9gxfZrmFWiL96c23xQ0aLcHocV2tVA==
+  dependencies:
+    leaflet ">=0.7.0"
+
 leaflet.markercluster@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/leaflet.markercluster/-/leaflet.markercluster-1.4.1.tgz#b53f2c4f2ca7306ddab1dbb6f1861d5e8aa6c5e5"
   integrity sha512-ZSEpE/EFApR0bJ1w/dUGwTSUvWlpalKqIzkaYdYB7jaftQA/Y2Jav+eT4CMtEYFj+ZK4mswP13Q2acnPBnhGOw==
 
-leaflet@1.5.1:
+leaflet@1.5.1, leaflet@>=0.7.0:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.5.1.tgz#9afb9d963d66c870066b1342e7a06f92840f46bf"
   integrity sha512-ekM9KAeG99tYisNBg0IzEywAlp0hYI5XRipsqRXyRTeuU8jcuntilpp+eFf5gaE0xubc9RuSNIVtByEKwqFV0w==
