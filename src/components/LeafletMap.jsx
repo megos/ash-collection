@@ -12,6 +12,8 @@ import { CITY_HALL_POSITION } from '../constants'
 import './LeafletMap.css'
 import iconRetinaUrl from '../assets/marker-icon-2x.png'
 import iconUrl from '../assets/marker-icon.png'
+import iconRetinaUrlDefault from 'leaflet/dist/images/marker-icon-2x.png'
+import iconUrlDefault from 'leaflet/dist/images/marker-icon.png'
 
 const icon = L.icon({
   iconRetinaUrl,
@@ -21,6 +23,15 @@ const icon = L.icon({
   iconAnchor: [11, 41], // point of the icon which will correspond to marker's location
   shadowAnchor: [14, 40], // the same for the shadow
   popupAnchor: [0, -41], // point from which the popup should open relative to the iconAnchor
+})
+
+// eslint-disable-next-line no-underscore-dangle
+delete L.Icon.Default.prototype._getIconUrl
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: iconRetinaUrlDefault,
+  iconUrl: iconUrlDefault,
+  shadowUrl,
 })
 
 export default class LeafletMap extends Component {
@@ -57,11 +68,15 @@ export default class LeafletMap extends Component {
     const {
       center, zoom, maxZoom, data,
     } = this.state
+    const { userPosition } = this.props
     return (
       <Map center={center} ref={this.mapRef} zoom={zoom} maxZoom={maxZoom}>
         <TileLayer
           attribution='<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noreferrer noopener">地理院タイル</a> '
           url="https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"
+        />
+        <Marker
+          position={userPosition}
         />
         <MarkerClusterGroup>
           {data.map((d, idx) => (
