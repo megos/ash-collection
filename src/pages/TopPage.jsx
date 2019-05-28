@@ -3,11 +3,10 @@ import { Page } from 'react-onsenui'
 import LeafletMap from '../components/LeafletMap'
 import TopToolbar from '../components/TopToolbar'
 import Location from '../components/Location'
-import { CITY_HALL_POSITION } from '../constants'
 
 export default class TopPage extends Component {
   state = {
-    userPosition: CITY_HALL_POSITION,
+    userPosition: null,
   }
 
   onPositionChange = (pos) => {
