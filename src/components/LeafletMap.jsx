@@ -7,13 +7,13 @@ import csv from 'csvtojson'
 import PropTypes from 'prop-types'
 import L from 'leaflet'
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
+import iconRetinaUrlDefault from 'leaflet/dist/images/marker-icon-2x.png'
+import iconUrlDefault from 'leaflet/dist/images/marker-icon.png'
 import { takutikouhai } from '../data/3-16_takutikouhai'
 import { CITY_HALL_POSITION } from '../constants'
 import './LeafletMap.css'
 import iconRetinaUrl from '../assets/marker-icon-2x.png'
 import iconUrl from '../assets/marker-icon.png'
-import iconRetinaUrlDefault from 'leaflet/dist/images/marker-icon-2x.png'
-import iconUrlDefault from 'leaflet/dist/images/marker-icon.png'
 
 const icon = L.icon({
   iconRetinaUrl,
