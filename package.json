@@ -46,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "@megos/eslint-config-react": "0.0.3"
+    "@megos/eslint-config-react": "0.0.4"
   }
 }
