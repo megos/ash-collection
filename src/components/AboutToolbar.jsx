@@ -11,6 +11,7 @@ class AboutToolbar extends Component {
     // eslint-disable-next-line react/prop-types
     const { history } = this.props
     // TODO: if no history
+    // eslint-disable-next-line react/prop-types
     history.goBack()
   }
 
