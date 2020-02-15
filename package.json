@@ -30,7 +30,8 @@
       "@megos/eslint-config-react"
     ],
     "rules": {
-      "react/no-array-index-key": "off"
+      "react/no-array-index-key": "off",
+      "react/state-in-constructor": "off"
     }
   },
   "browserslist": {
