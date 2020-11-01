@@ -9790,10 +9790,10 @@ react-leaflet@2.6.3, react-leaflet@^2.6.3:
     hoist-non-react-statics "^3.3.2"
     warning "^4.0.3"
 
-react-onsenui@1.11.2:
-  version "1.11.2"
-  resolved "https://registry.yarnpkg.com/react-onsenui/-/react-onsenui-1.11.2.tgz#796b222afe532df1785aaa3f73a63bfa77d71a60"
-  integrity sha512-k4suMaKjkzEXuMgS7E2yLM0yHM5PYeig431MbXNfwX5+T4w7C6uoviwY+jawfUeEtNkRF9K/j/i7iZFv/rKiLw==
+react-onsenui@1.11.3:
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/react-onsenui/-/react-onsenui-1.11.3.tgz#c9677df88a441a0406b671bd9620e25549379d41"
+  integrity sha512-TC+ZM98wg+Ro5wReu8RoxGNvQzBEaYTRa06NWveceLNkjY+EPyfJ7JIxqRK+s/hDUq33m9JO7qJTDIWXe2LISw==
   dependencies:
     enzyme "^3.3.0"
     enzyme-adapter-react-16 "^1.1.1"
