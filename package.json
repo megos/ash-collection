@@ -12,7 +12,7 @@
     "react-dom": "17.0.2",
     "react-leaflet": "2.6.3",
     "react-leaflet-markercluster": "2.0.0",
-    "react-onsenui": "1.11.3",
+    "react-onsenui": "1.11.4",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.4"
