@@ -13,8 +13,8 @@
     "react-leaflet": "2.6.3",
     "react-leaflet-markercluster": "2.0.0",
     "react-onsenui": "1.11.4",
-    "react-router": "5.2.0",
-    "react-router-dom": "5.2.0",
+    "react-router": "6.9.0",
+    "react-router-dom": "6.9.0",
     "react-scripts": "4.0.3"
   },
   "scripts": {
