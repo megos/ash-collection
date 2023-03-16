@@ -1849,11 +1849,6 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@onsenui/custom-elements@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@onsenui/custom-elements/-/custom-elements-1.0.0.tgz#8e2b5c8968b8d94da70c6e92ecc56b47f79a0ff3"
-  integrity sha512-KhYeDFhQyE6j3xxWqyu3q8KgeuaRGUwDjuHnmS1gRri+OZ6w6CUqYPn6kidZjXz+LkU2dEp/D+BWo+9Qi6nSSQ==
-
 "@pmmmwh/react-refresh-webpack-plugin@0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.3.tgz#1eec460596d200c0236bf195b078a5d1df89b766"
@@ -4122,11 +4117,6 @@ core-js@^2.4.0:
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
   integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
-
-core-js@^2.6.12:
-  version "2.6.12"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
-  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 core-js@^3.6.5:
   version "3.12.0"
@@ -9093,13 +9083,10 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-onsenui@2.11.2:
-  version "2.11.2"
-  resolved "https://registry.yarnpkg.com/onsenui/-/onsenui-2.11.2.tgz#acec927bccadc83eb882d3eb9cff965bfe8aae63"
-  integrity sha512-gllq4jJvFynSt+i4oujYdkQ/lrtfWfLXsFHEyx2SsbQ7R7B0xiGNbl2l1xGjunncwvKSZ1nxmaZEbDHElUmKEw==
-  dependencies:
-    "@onsenui/custom-elements" "1.0.0"
-    core-js "^2.6.12"
+onsenui@2.12.8:
+  version "2.12.8"
+  resolved "https://registry.yarnpkg.com/onsenui/-/onsenui-2.12.8.tgz#861490e84818881f9521fc000f4f92ac79758745"
+  integrity sha512-ju5c2nP/pW7ZIOALqG2yVmjlIa2S6Men2winRKB8E7qtMkjSpMcHD6aRLMZZ4bGRLIiubpT7psdXWLWOc/lEyA==
 
 open@^7.0.2:
   version "7.0.2"
