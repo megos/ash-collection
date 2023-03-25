@@ -6,3 +6,16 @@
 .map-root {
   height: 100%;
 }
+
+.info-button {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 400;
+}
+
+.dialog {
+  position: fixed;
+  top: 32px;
+  z-index: 400;
+}

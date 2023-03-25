@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import { markers } from './markers'
 import { customIcon } from './icon'
+import { InfoButton } from './InfoButton'
 import 'leaflet/dist/leaflet.css'
 import './App.css'
 
@@ -21,6 +22,7 @@ function App() {
           ))}
         </MarkerClusterGroup>
       </MapContainer>
+      <InfoButton />
     </div>
   )
 }
