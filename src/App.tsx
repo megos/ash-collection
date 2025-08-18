@@ -4,6 +4,8 @@ import { markers } from './markers'
 import { customIcon } from './icon'
 import { InfoButton } from './InfoButton'
 import 'leaflet/dist/leaflet.css'
+import 'react-leaflet-cluster/dist/assets/MarkerCluster.css'
+import 'react-leaflet-cluster/dist/assets/MarkerCluster.Default.css'
 import './App.css'
 
 function App() {
