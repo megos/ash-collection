@@ -1,8 +1,8 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
-import { markers } from './markers'
-import { customIcon } from './icon'
 import { InfoButton } from './InfoButton'
+import { customIcon } from './icon'
+import { markers } from './markers'
 import 'leaflet/dist/leaflet.css'
 import 'react-leaflet-cluster/dist/assets/MarkerCluster.css'
 import 'react-leaflet-cluster/dist/assets/MarkerCluster.Default.css'
@@ -17,8 +17,8 @@ function App() {
           url="https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"
         />
         <MarkerClusterGroup>
-          {markers.map((marker, idx) => (
-            <Marker key={idx} position={[marker.lat, marker.lng]} icon={customIcon}>
+          {markers.map(marker => (
+            <Marker key={`${marker.lat}:${marker.lng}`} position={[marker.lat, marker.lng]} icon={customIcon}>
               <Popup>{marker.name}</Popup>
             </Marker>
           ))}

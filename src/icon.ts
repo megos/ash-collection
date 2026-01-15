@@ -1,6 +1,6 @@
 import { icon } from 'leaflet'
-import iconRetinaUrl from './assets/marker-icon-2x.webp'
 import iconUrl from './assets/marker-icon.webp'
+import iconRetinaUrl from './assets/marker-icon-2x.webp'
 
 export const customIcon = icon({
   iconRetinaUrl,
