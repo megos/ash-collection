@@ -21,7 +21,9 @@ export const Dialog: React.FC<{ open: boolean; onClose: () => void }> = ({ open,
       <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noreferrer">
         CCBY4.0
       </a>
-      <button onClick={onClose}>close</button>
+      <button type="button" onClick={onClose}>
+        close
+      </button>
     </dialog>
   )
 }
