@@ -1,11 +1,12 @@
 import { icon } from 'leaflet'
-import iconUrl from './assets/marker-icon.webp'
-import iconRetinaUrl from './assets/marker-icon-2x.webp'
+import iconUrl from './assets/marker-icon.svg'
+
+const x = 128 / 5
+const y = 208 / 5
 
 export const customIcon = icon({
-  iconRetinaUrl,
   iconUrl,
-  iconSize: [22, 41],
-  iconAnchor: [11, 41],
-  popupAnchor: [0, -41],
+  iconSize: [x, y],
+  iconAnchor: [x / 2, y],
+  popupAnchor: [0, -y],
 })
